@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>jQuery MsgBox with Selection</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+    <link rel="stylesheet" type="text/css" href="../src/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../src/css/global.css"/>
+
+
+    <script type="text/javascript" src="../src/javascript/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../src/javascript/msgbox/jquery.msgbox.css"/>
+    <script type="text/javascript" src="../src/javascript/msgbox/jquery.msgbox.js"></script>
+
+</head>
+<body>
+<div id="top">
+    <div id="header">
+        <h1>jQuery MsgBox <span>with Selection Demo</span></h1>
+    </div>
+
+    <div class="hastoc">
+        <h2>Example: MsgBox with Selection</h2>
+
+        <p class="right">
+            <button id="msg-selection"
+                    style="margin-left: 10px; min-width: 85px; padding: 0 14px 2px; height: 24px; cursor: pointer;">
+                Click
+            </button>
+        </p>
+<pre>
+$("#msg-selection").click(function() {
+  $.msgbox("&lt;p&gt;You must provide the following:&lt;/p&gt;", {
+     type: "prompt",
+        inputs: [
+            {
+                type: "text",
+                label: "Insert your Name:",
+                value: "George",
+                required: true},
+            {
+                type: "select",
+                name: "hobby-select",
+                label: "Select your Hobby:",
+                value: "Music",
+                options: [
+                    {
+                        label: "Music",
+                        value: "Music"
+                    },
+                    {
+                        label: "Movie",
+                        value: "Movie"
+                    }
+                ],
+                required: true
+            }
+        ],
+        buttons: [
+            {
+                type: "submit",
+                value: "OK"
+            },
+            {
+                type: "cancel",
+                value: "Exit"
+            }
+        ]
+    }, function (name, hobby) {
+        if (name) {
+            $.msgbox("Hello <strong>" + name + "</strong>, your hobby is <strong>" + hobby + "</strong>.",
+                        {type: "info"});
+        } else {
+            $.msgbox("Bye!", {type: "info"});
+        }
+    });
+});
+</pre>
+
+        <script type="text/javascript">
+            $("#msg-selection").click(function () {
+                $.msgbox("<p>You must provide the following:</p>", {
+                    type: "prompt",
+                    inputs: [
+                        {
+                            type: "text",
+                            label: "Insert your Name:",
+                            value: "George",
+                            required: true},
+                        {
+                            type: "select",
+                            name: "hobby-select",
+                            label: "Select your Hobby:",
+                            value: "Music",
+                            options: [
+                                {
+                                    label: "Music",
+                                    value: "Music"
+                                },
+                                {
+                                    label: "Movie",
+                                    value: "Movie"
+                                }
+                            ],
+                            required: true
+                        }
+                    ],
+                    buttons: [
+                        {
+                            type: "submit",
+                            value: "OK"
+                        },
+                        {
+                            type: "cancel",
+                            value: "Exit"
+                        }
+                    ]
+                }, function (name, hobby) {
+                    if (name) {
+                        $.msgbox("Hello <strong>" + name + "</strong>, your hobby is <strong>" + hobby + "</strong>.",
+                                {type: "info"});
+                    } else {
+                        $.msgbox("Bye!", {type: "info"});
+                    }
+                });
+            });
+        </script>
+    </div>
+</div>
+</body>
+</html>
